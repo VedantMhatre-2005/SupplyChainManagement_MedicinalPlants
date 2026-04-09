@@ -1,0 +1,60 @@
+# ============================================================================
+# Hardhat Blockchain Development .gitignore
+# ============================================================================
+
+# ── Dependencies ──────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.lock
+
+# ── Hardhat & Compilation ────────────────────────────────────────────────
+artifacts/
+cache/
+artifacts-build/
+typechain/
+typechain-types/
+
+# ── Environment & Secrets ────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+deployments/
+deployments-test/
+
+# ── IDE ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ── OS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────────────────────────
+logs/
+*.log
+
+# ── Testing & Coverage ───────────────────────────────────────────────────
+coverage/
+.nyc_output/
+.mocha_output/
+
+# ── Gas Reports & Reports ────────────────────────────────────────────────
+gas-report.txt
+gas-report.json
+
+# ── Temporary Files ──────────────────────────────────────────────────────
+*.tmp
+*.temp
+*.orig

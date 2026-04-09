@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 const initialForm = {
+  batchId: "",
   plantName: "",
   scientificName: "",
   partUsed: "",
@@ -70,6 +71,7 @@ function RegisterBatch() {
 
     // Basic validation (excluding ipfsHash because it may be optional)
     const requiredFields = [
+      "batchId",
       "plantName",
       "scientificName",
       "partUsed",
@@ -112,6 +114,7 @@ function RegisterBatch() {
       });
 
       const tx = await contract.registerBatch(
+        form.batchId,
         form.plantName,
         form.scientificName,
         form.partUsed,
@@ -147,6 +150,17 @@ function RegisterBatch() {
       <h2 className="card-title">Register Medicinal Batch</h2>
 
       <form className="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Batch ID</label>
+          <input
+            type="text"
+            name="batchId"
+            value={form.batchId}
+            onChange={handleChange}
+            placeholder="e.g. BATCH-001"
+          />
+        </div>
+
         <div className="form-group">
           <label>Plant Name</label>
           <input

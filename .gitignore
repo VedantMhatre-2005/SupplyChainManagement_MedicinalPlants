@@ -1,16 +1,67 @@
-# Dependencies
+# ============================================================================
+# Project Root .gitignore - MediChain dApp Monorepo
+# ============================================================================
+
+# ── Dependencies ──────────────────────────────────────────────────────────
 node_modules/
+*.lock
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
 
-# Production build
-build/
-
-# Environment variables - contains secrets, never commit
+# ── Environment & Secrets ─────────────────────────────────────────────────
 .env
 .env.local
 .env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Misc
+# ── IDE & Editor ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.vs/
+
+# ── OS ────────────────────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+Thumbs.db
+
+# ── Logs ──────────────────────────────────────────────────────────────────
+logs/
 *.log
 npm-debug.log*
-.venv
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ── Python virtual env ────────────────────────────────────────────────────
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ── Temporary & Build ─────────────────────────────────────────────────────
+*.tmp
+*.temp
+*.orig
+dist/
+build/
+
+# ── IDE-specific ──────────────────────────────────────────────────────────
+.eslintcache
+.stylelintcache
+.cache/
