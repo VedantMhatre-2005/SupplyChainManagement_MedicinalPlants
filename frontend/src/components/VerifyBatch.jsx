@@ -21,7 +21,7 @@ function VerifyBatch() {
 
     try {
       const contract = await getContract();
-      const result = await contract.getBatch(Number(batchId));
+      const result = await contract.getBatch(batchId);
 
       setBatchData({
         plantName: result.plantName,
@@ -29,7 +29,7 @@ function VerifyBatch() {
         partUsed: result.partUsed,
         traditionalUse: result.traditionalUse,
         currentOwner: result.currentOwner,
-        ipfsHash: result.ipfsHash,
+        ipfsCID: result.ipfsCID,
       });
 
       setStatus({ type: "success", message: "Batch found on blockchain." });
@@ -102,11 +102,11 @@ function VerifyBatch() {
               <span className="detail-label">IPFS Hash</span>
               <a
                 className="detail-value mono link"
-                href={`https://ipfs.io/ipfs/${batchData.ipfsHash}`}
+                href={`https://ipfs.io/ipfs/${batchData.ipfsCID}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {batchData.ipfsHash}
+                {batchData.ipfsCID}
               </a>
             </div>
           </div>

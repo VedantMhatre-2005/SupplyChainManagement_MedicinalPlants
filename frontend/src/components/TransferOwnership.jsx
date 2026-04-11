@@ -42,9 +42,10 @@ function TransferOwnership() {
 
       setStatus({ type: "pending", message: "Transaction pending… please confirm in MetaMask." });
 
-      const tx = await contract.transferOwnership(
-        Number(form.batchId),
-        form.newOwnerAddress
+      const tx = await contract.transferBatch(
+        form.batchId,
+        form.newOwnerAddress,
+        "Transfer via DApp"
       );
 
       setStatus({ type: "pending", message: `Mining transaction: ${tx.hash}` });

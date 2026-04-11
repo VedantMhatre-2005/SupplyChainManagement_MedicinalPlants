@@ -27,26 +27,16 @@ function ProcessBatch() {
       }
     }
 
-    if (isNaN(Number(form.batchId)) || Number(form.batchId) < 0) {
-      setStatus({ type: "error", message: "Batch ID must be a valid number." });
-      return;
-    }
-
     setLoading(true);
     setStatus({ type: "", message: "" });
 
     try {
       const contract = await getContract();
-      const processingTimestamp = Math.floor(
-        new Date(form.processingDate).getTime() / 1000
-      );
 
       setStatus({ type: "pending", message: "Transaction pending… please confirm in MetaMask." });
 
-      const tx = await contract.updateProcessing(
-        Number(form.batchId),
-        form.processingMethod,
-        processingTimestamp,
+      const tx = await contract.updateBatchCID(
+        form.batchId,
         form.ipfsHash
       );
 
